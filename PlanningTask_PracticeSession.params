@@ -1,0 +1,16 @@
+left '1'
+right '2'
+up '3'
+down '4'
+scan False
+record_video False
+signal_parallel False
+auto_advance True
+output_dir 'C:\PlanningTask_TempStorage\TaskData'
+allow_instructions_back False
+instruction_volume 0.5
+redirect_output True
+session_id T1
+screen_x 1920
+screen_y 1080
+refresh_rate 60
