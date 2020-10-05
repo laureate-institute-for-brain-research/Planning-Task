@@ -1,0 +1,16 @@
+{}
+run
+P
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right', 'session_id': '1'}
+run_id
+__PT-RP1-_BEH
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right', 'session_id': '1', 'run_id': '__PT-RP1-_BEH'}
+instruction_schedule
+media/instructions/PlanningTask_instruct_RP1_R.csv
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right', 'session_id': '1', 'run_id': '__PT-RP1-_BEH', 'instruction_schedule': 'media/instructions/PlanningTask_instruct_RP1_R.csv'}
+param_file
+__PT_RP1_PARA.txt
+Pyo warning: Unknown audio type. Using Portaudio
+3.2658 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['pyo', 'pygame'] (in that order).
+7.0350 	WARNING 	Monitor specification not found. Creating a temporary one...
+QUIT!

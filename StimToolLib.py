@@ -7,6 +7,8 @@ from shutil import move
 from psychopy.hardware import joystick
 from psychopy.visual.windowwarp import Warper
 
+import pathlib
+
 
 PARALLEL_DELAY = 0.005 #time to wait when sending pulses to the parallel port
 TRIAL_START_DELAY = 0.005 #test this experimentally--should be the delay between when the run is signalled to BIOPAC and when the clock is reset
@@ -72,7 +74,7 @@ def general_setup(g):
     #initialize the window, main text stim, and clock
     thisMon = monitors.Monitor('', width=g.session_params['monitor_width_cm'], distance=g.session_params['monitor_distance_cm'])
     thisMon.setSizePix([g.session_params['monitor_width_pix'], g.session_params['monitor_height_pix']])
-    g.win = visual.Window(fullscr=False, screen=1,color=(-1,-1,-1), waitBlanking=True, colorSpace='rgb',winType='pyglet', allowGUI=False, size=(g.session_params['screen_x'], g.session_params['screen_y']), monitor=thisMon,useFBO = True) 
+    g.win = visual.Window(fullscr=False, screen=1,color=(-1,-1,-1), waitBlanking=True, colorSpace='rgb', allowGUI=False, size=(g.session_params['screen_x'], g.session_params['screen_y']), monitor=thisMon,useFBO = True) 
     
 
     g.msg = visual.TextStim(g.win,text="",units='pix',pos=[0,0],color=[1,1,1],height=30,wrapWidth=int(1600))
@@ -394,7 +396,10 @@ def run_instructions_keyselect(instruct_schedule_file, g):
 
 
 def do_one_slide_keyselect(slide, directory, g):
-    image = visual.ImageStim(g.win, image=os.path.join(directory, slide[0]), units = 'pix')
+    
+
+    p = pathlib.PureWindowsPath(slide[0])
+    image = visual.ImageStim(g.win, image=os.path.join(directory, p.as_posix() ), units = 'pix')
     try:
         image.size = [g.session_params['screen_x'], g.session_params['screen_y']]
     except:
@@ -403,9 +408,11 @@ def do_one_slide_keyselect(slide, directory, g):
         s = None
     else:
         if len(slide) == 4 and slide[3] != 'None': #optional volume parameter
-            s = sound.Sound(value = os.path.join(directory, slide[1]), volume=float(slide[3]))
+            p_s = pathlib.PureWindowsPath(slide[1])
+            s = sound.Sound(value = os.path.join(directory, p_s.as_posix()), volume=float(slide[3]))
         else:
-            s = sound.Sound(value = os.path.join(directory, slide[1]), volume=g.session_params['instruction_volume'])
+            p_s = pathlib.PureWindowsPath(slide[1])
+            s = sound.Sound(value = os.path.join(directory, p_s.as_posix()), volume=g.session_params['instruction_volume'])
     if len(slide) == 5 and slide[4].strip() != 'None': #must have volume parameter to have keyselect--not the cleanest way to do this. The volume parameter can be None though, meaning use the session_param
         advance_key = slide[4].strip() #remove newline
     else:
@@ -798,7 +805,10 @@ def generate_prefix(g):
     names_used = os.listdir(g.session_params['output_dir'])
     
     #names_used = os.listdir(os.path.join(os.path.dirname(__file__), 'DATA'))
-    start_prefix = g.session_params['SID'] + '-' + g.session_params['session_id'] + '-' + g.run_params['run_id']
+    try:
+        start_prefix = g.session_params['SID'] + '-' + g.session_params['session_id'] + '-' + g.run_params['run_id']
+    except KeyError:
+        start_prefix = 'free'
     
     i = 1
     prefix = start_prefix

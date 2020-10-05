@@ -11,7 +11,7 @@ signal_parallel False
 auto_advance True
 screen_x 1920
 screen_y 1080
-output_dir 'C:\PlanningTask_TempStorage\TaskData'
+output_dir '~/PlanningTask_TempStorage/TaskData'
 allow_instructions_back False
 instruction_volume 0.5
 redirect_output True

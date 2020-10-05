@@ -1,3 +1,4 @@
 run P
 select_1 'left'
 select_2 'right'
+session_id '1'

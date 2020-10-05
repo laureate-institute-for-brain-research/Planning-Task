@@ -3,9 +3,9 @@ from psychopy import prefs
 prefs.hardware['audioLib'] = ['pyo','pygame']
 #prefs.general['audioLib'] = [u'pygame']
 prefs.hardware['audioDriver'] = ['ASIO4ALL', 'ASIO', 'Audigy', ]
-from pygame import pypm #need to load this before loading psychopy.sound when using pyo 
+#from pygame import pypm #need to load this before loading psychopy.sound when using pyo 
 from psychopy import core, visual, gui, data, misc, event, sound, logging #, microphone
-import time, numpy, random, datetime, sys, os, copy, pyo, csv, ast, StimToolLib, threading, pygame.pypm, CloseAudio
+import time, numpy, random, datetime, sys, os, copy, pyo, csv, ast, StimToolLib, threading, CloseAudio
 
 
 import PlanningTask.PlanningTask

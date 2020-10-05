@@ -1,0 +1,41 @@
+{}
+run
+P
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right'}
+run_id
+__PT-RP1-_BEH
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right', 'run_id': '__PT-RP1-_BEH'}
+instruction_schedule
+media/instructions/PlanningTask_instruct_RP1_R.csv
+{'run': 'PlanningTask_RP1_RIGHT.schedule', 'select_1': 'left', 'select_2': 'right', 'run_id': '__PT-RP1-_BEH', 'instruction_schedule': 'media/instructions/PlanningTask_instruct_RP1_R.csv'}
+param_file
+__PT_RP1_PARA.txt
+1.7935 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['pyo', 'pygame'] (in that order).
+8.8124 	WARNING 	Monitor specification not found. Creating a temporary one...
+10.4296 	ERROR 	Couldn't find image /Users/jtouthang/Downloads/Planning-Task/PlanningTask/media/instructions/PlaningInstructions\Slide1.JPG; check path? (tried: /Users/jtouthang/Downloads/Planning-Task/PlanningTask/media/instructions/PlaningInstructions\Slide1.JPG)
+Traceback (most recent call last):
+  File "/Users/jtouthang/Downloads/Planning-Task/StimTool.py", line 147, in <module>
+    switched_task = run_task_until_success(order[idx], session_params)
+  File "/Users/jtouthang/Downloads/Planning-Task/StimTool.py", line 32, in run_task_until_success
+    status = mod_mapping[task].run(session_params, run_params)
+  File "/Users/jtouthang/Downloads/Planning-Task/PlanningTask/PlanningTask.py", line 260, in run
+    run_try()
+  File "/Users/jtouthang/Downloads/Planning-Task/PlanningTask/PlanningTask.py", line 1510, in run_try
+    StimToolLib.run_instructions_keyselect(os.path.join(os.path.dirname(__file__), g.run_params['instruction_schedule']), g)
+  File "/Users/jtouthang/Downloads/Planning-Task/StimToolLib.py", line 393, in run_instructions_keyselect
+    i = max(i + do_one_slide_keyselect(slides[i], directory, g), 0) #do_one_slide may increment or decrement i, depending on whether session_params['right'] or session_params['left'] is pressed--don't let them go back on the first slide
+  File "/Users/jtouthang/Downloads/Planning-Task/StimToolLib.py", line 397, in do_one_slide_keyselect
+    image = visual.ImageStim(g.win, image=os.path.join(directory, slide[0]), units = 'pix')
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/visual/image.py", line 102, in __init__
+    self.setImage(image, log=False)
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/visual/image.py", line 302, in setImage
+    setAttribute(self, 'image', value, log)
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/tools/attributetools.py", line 141, in setAttribute
+    setattr(self, attrib, value)
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/tools/attributetools.py", line 32, in __set__
+    newValue = self.func(obj, value)
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/visual/image.py", line 289, in image
+    wrapping=False)
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.6/psychopy/visual/basevisual.py", line 819, in _createTexture
+    raise IOError(msg % (tex, os.path.abspath(tex)))
+OSError: Couldn't find image /Users/jtouthang/Downloads/Planning-Task/PlanningTask/media/instructions/PlaningInstructions\Slide1.JPG; check path? (tried: /Users/jtouthang/Downloads/Planning-Task/PlanningTask/media/instructions/PlaningInstructions\Slide1.JPG)
